@@ -37,6 +37,7 @@ public class RayDetector : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit, range))
         {
             Debug.Log(hit.transform.name + ": 터널링 발생");
+            Destroy(gameObject);
         }
 
         _prevPosition = transform.position;
