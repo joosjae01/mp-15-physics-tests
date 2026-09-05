@@ -392,9 +392,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 0
 --- !u!135 &702292396
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -488,12 +488,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702292394}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625c9c76be383f34c82d863b3bad6691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sphereSpeed: 800
+  _sphereSpeed: 150
   _rotateSpeed: 0
 --- !u!1 &1619499639
 GameObject:
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _floorSpeed: 0
-  _speenSpeed: 240
+  _speenSpeed: 0
 --- !u!1 &1734690261
 GameObject:
   m_ObjectHideFlags: 0
