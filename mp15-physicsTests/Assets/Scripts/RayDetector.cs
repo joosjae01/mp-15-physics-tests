@@ -8,6 +8,7 @@ public class RayDetector : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     private Rigidbody _rigidBody;
     private Vector3 _prevPosition;
+    private bool isMoving = true;
 
     private void Awake()
     {
@@ -23,6 +24,8 @@ public class RayDetector : MonoBehaviour
 
     private void MoveForward()
     {
+        if (!isMoving) return;
+
         _rigidBody.velocity = Vector3.forward * _moveSpeed;
     }
 
@@ -37,7 +40,8 @@ public class RayDetector : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit, range))
         {
             Debug.Log(hit.transform.name + ": 터널링 발생");
-            Destroy(gameObject);
+            isMoving = false;
+            _rigidBody.velocity = Vector3.zero;
         }
 
         _prevPosition = transform.position;
