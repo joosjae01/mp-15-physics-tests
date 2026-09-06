@@ -19,7 +19,6 @@ public class FloorMove : MonoBehaviour
         // Time.deltaTime을 곱했을 때 1초에 10칸을 간다
         
         // Time.deltaTime이 없을 땐 조오오올라 빠르게 가는게 맞았다.
-        Rigidbody.Rotate(Vector3.right * _speenSpeed * Time.deltaTime);
     }
     
 }
