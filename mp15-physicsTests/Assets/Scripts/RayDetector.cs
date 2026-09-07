@@ -19,7 +19,7 @@ public class RayDetector : MonoBehaviour
     private void Update()
     {
         MoveForward();
-        RayPrev();
+        RayPrev();       
     }
 
     private void MoveForward()
@@ -32,18 +32,20 @@ public class RayDetector : MonoBehaviour
     private void RayPrev()
     {
         float range = Vector3.Distance(transform.position, _prevPosition);
-        Vector3 direction = _prevPosition - transform.position;
-        Ray ray = new Ray(transform.position, direction.normalized);
+        Vector3 rayDirection = transform.position - _prevPosition;
+        Ray ray = new Ray(_prevPosition, rayDirection.normalized * range);
 
-        Debug.DrawRay(transform.position, direction.normalized * range , Color.red);
+        Debug.DrawRay(_prevPosition, rayDirection.normalized * range , Color.red);
 
-        if(Physics.Raycast(ray, out RaycastHit hit, range))
+        if(Physics.Raycast(ray, out RaycastHit hit))
         {
-            Debug.Log(hit.transform.name + ": 터널링 발생");
-            isMoving = false;
-            _rigidBody.velocity = Vector3.zero;
+            if(hit.transform != transform)
+            {
+                Debug.Log(hit.transform.name + ": 터널링 발생");
+                isMoving = false;
+                _rigidBody.velocity = Vector3.zero;
+            }
         }
-
         _prevPosition = transform.position;
     }
 
