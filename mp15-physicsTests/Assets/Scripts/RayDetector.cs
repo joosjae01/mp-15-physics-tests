@@ -39,7 +39,7 @@ public class RayDetector : MonoBehaviour
 
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
-            if(hit.transform != transform)
+            if(hit.transform.gameObject != gameObject)
             {
                 Debug.Log(hit.transform.name + ": 터널링 발생");
                 isMoving = false;
